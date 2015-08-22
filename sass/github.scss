@@ -1,0 +1,55 @@
+// Vars
+$btn-orange-color: white;
+$btn-orange-bg: #f9713c;
+$btn-orange-border: #e06636;
+
+// Mixins
+@mixin button-variant($color, $background, $border) {
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+
+	$active-background: darken($background, 10%);
+	$active-border: darken($border, 12%);
+
+	&:focus,
+	&.focus, 
+	&:hover,
+	&.hover,
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		color: $color;
+		background-color: $active-background;
+		border-color: $active-border;
+	}
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		// Remove the gradient for the pressed/active state
+		background-image: none;
+		box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+	}
+	&.disabled,
+	&:disabled,
+	fieldset[disabled] & {
+		&:focus,
+		&.focus, 
+		&:hover,
+		&.hover {
+			background-color: $background;
+			border-color: $border;
+		}
+	}
+}
+
+
+// Styles
+h1, .h1, h2, .h2, h3, .h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+.btn-orange {
+	@include button-variant($btn-orange-color, $btn-orange-bg, $btn-orange-border);
+}

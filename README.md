@@ -1,2 +1,2 @@
 # willihyde.github.io
-WilliHyde's GitHub Pages
+Willi Hyde's GitHub Pages
