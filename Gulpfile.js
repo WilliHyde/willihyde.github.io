@@ -1,28 +1,39 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var jade = require('gulp-jade');
-var rename = require("gulp-rename");
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	pug = require('gulp-pug'),
+	rename = require('gulp-rename'),
+	pump = require('pump');
 
-gulp.task('styles', function() {
-	gulp.src('sass/**/*.scss')
-		.pipe(sass({
+//Styles
+gulp.task('styles', function(cb) {
+	pump([
+		gulp.src('sass/**/*.scss'),
+		sass({
 			outputStyle: 'compressed',
 			errLogToConsole: true
-		}))
-		.pipe(rename(function(path) {
+		}),
+		rename(function(path) {
 			path.basename += ".min";
-		}))
-		.pipe(gulp.dest('./css/'));
+		}),
+		gulp.dest('./css/')
+	],
+	cb
+	);
 });
 
-gulp.task('templates', function() {
-	gulp.src('jade/**/*.jade')
-		.pipe(jade())
-		.pipe(gulp.dest('./'))
+//Pug Templates
+gulp.task('templates', function(cb) {
+	pump([
+		gulp.src('pug/**/*.pug'),
+		pug(),
+		gulp.dest('./')
+	],
+	cb
+	);
 });
 
 //Watch task
 gulp.task('default',function() {
 	gulp.watch('sass/**/*.scss',['styles']);
-	gulp.watch('jade/**/*.jade',['templates']);
+	gulp.watch('pug/**/*.pug',['templates']);
 });

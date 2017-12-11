@@ -1,0 +1,35 @@
+{
+  "name": "willihyde.github.io",
+  "version": "1.0.0",
+  "description": "For willihyde GitHub Pages.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliHyde/willihyde.github.io.git"
+  },
+  "keywords": [
+    "bago",
+    "willi",
+    "willihyde",
+    "hyde",
+    "bago",
+    "crypto"
+  ],
+  "author": "Willi Hyde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilliHyde/willihyde.github.io/issues"
+  },
+  "homepage": "https://github.com/WilliHyde/willihyde.github.io#readme",
+  "dependencies": {
+    "gulp": "*",
+    "gulp-sass": "*",
+    "gulp-pug": "*",
+    "gulp-rename": "*",
+    "gulp-uglify": "*",
+    "pump": "*"
+  }
+}
